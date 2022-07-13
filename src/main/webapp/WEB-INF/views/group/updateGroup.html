@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateGroup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="login-box">
+    <h2>Update a group</h2>
+    <form action="#"
+          th:method="PATCH"
+          th:action="@{/groups/{id}(id=${groupUpdate.getId()})}"
+          th:object="${groupUpdate}">
+
+        <div class="user-box">
+            <label >Group Name</label>
+            <input th:field="${groupUpdate.groupName}">
+        </div>
+        <div class="user-box">
+            <label>Date of Start</label>
+            <input th:field="${groupUpdate.dateOfCreate}">
+        </div>
+        <div class="user-box">
+            <label>Date of Finish</label>
+            <input th:field="${groupUpdate.dateOfFinish}">
+        </div>
+        <button type="submit" value="Update">Update</button>
+    </form>
+    <div class="back-button">
+        <a th:href="@{/groups}">
+            <button class="button">Go Back</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

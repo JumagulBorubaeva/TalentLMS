@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All groups</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student:${students}">
+        <th scope="row" th:text="${student.id}"></th>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.studyFormat}"></td>
+<!--        <div class="radio-button">-->
+<!--            <input type="radio" value="ONLINE" th:field="*{student.studyFormat}"-->
+<!--                   id="onlineFormat">-->
+<!--            <label for="onlineFormat">ONLINE</label>-->
+<!--            <input type="radio" value="OFFLINE" th:field="*{student.studyFormat}"-->
+<!--                   id="offlineFormat">-->
+<!--            <label for="offlineFormat">OFFLINE</label>-->
+<!--        </div>-->
+
+            <a th:href="@{/students/{id}/studentUpdate(id=${student.getId()})}">update</a>
+        </td>
+        <td><form th:method="DELETE" th:action="@{/students/{id}(id=${student.getId()})}">
+            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:red;"/></form></td>
+        <td>
+
+    </tr>
+    </tbody>
+</table>
+<input style=" display: block; margin:auto; font-size:30px;" type="button" value="Add Student"
+       onclick="window.location.href = 'students/addStudent'">
+
+</body>
+</html>

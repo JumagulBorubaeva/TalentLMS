@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All teacher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">update</th>
+        <th scope="col">delete</th>
+        <th scope="col">Course</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="teacher:${teachers}">
+        <th scope="row" th:text="${teacher.id}"></th>
+        <td th:text="${teacher.firstName}"></td>
+        <td th:text="${teacher.lastName}"></td>
+        <td th:text="${teacher.email}"></td>
+<!--       <td th:text="${teacher.getCourse().getCourseName()}"></td>-->
+
+        <td>
+            <a th:href="@{/teachers/{id}/update(id=${teacher.getId()})}">update</a>
+        </td>
+        <td><form th:method="DELETE" th:action="@{/teachers/{id}(id=${teacher.getId()})}">
+            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:red;"/></form></td>
+
+    </tr>
+    </tbody>
+</table>
+<input style=" display: block; margin:auto; font-size:30px;" type="button" value="Add Teacher"
+       onclick="window.location.href = 'teachers/addTeacher'">
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All groups</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date of create</th>
+        <th scope="col">Date of finish</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="group:${groups}">
+        <th scope="row" th:text="${group.id}"></th>
+        <td th:text="${group.groupName}"></td>
+        <td th:text="${group.dateOfCreate}"></td>
+        <td th:text="${group.dateOfFinish}"></td>
+
+        <td>
+            <a th:href="@{/groups/{id}/update(id=${group.getId()})}">update</a>
+        </td>
+        <td><form th:method="DELETE" th:action="@{/groups/{id}(id=${group.getId()})}">
+            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:red;"/></form></td>
+
+    </tr>
+    </tbody>
+</table>
+<input style=" display: block; margin:auto; font-size:30px;" type="button" value="Add Group"
+       onclick="window.location.href = 'groups/addGroup'">
+
+</body>
+</html>

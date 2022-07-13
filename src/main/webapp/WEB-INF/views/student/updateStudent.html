@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateStudent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="login-box">
+    <h2>Update a student</h2>
+    <form action="#"
+          th:method="PATCH"
+          th:action="@{/students/{id}(id=${updateStudent.getId()})}"
+          th:object="${updateStudent}">
+
+        <div class="user-box">
+            <label>firstName</label>
+            <input th:field="${updateStudent.firstName}">
+        </div>
+        <div class="user-box">
+            <label>lastName</label>
+            <input th:field="${updateStudent.lastName}">
+            <div class="user-box">
+                <label>email</label>
+                <input th:field="${updateStudent.email}">
+            </div>
+            <div class="radio-button">
+                <input type="radio" value="ONLINE" th:field="${updateStudent.studyFormat}"
+                       id="onlineFormat">
+                <label for="onlineFormat">ONLINE</label>
+                <input type="radio" value="OFFLINE" th:field="${updateStudent.studyFormat}"
+                       id="offlineFormat">
+                <label for="offlineFormat">OFFLINE</label>
+            </div>
+        </div>
+        <button type="submit" value="Update">Update</button>
+    </form>
+    <div class="back-button">
+        <a th:href="@{/students}">
+            <button class="button">Go Back</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
