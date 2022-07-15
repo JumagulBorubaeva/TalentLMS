@@ -1,6 +1,7 @@
 package com.peaksoft.service.impl;
 
 import com.peaksoft.dao.GroupDAO;
+import com.peaksoft.entity.Course;
 import com.peaksoft.entity.Group;
 import com.peaksoft.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public void saveGroup(Group group) {
-        groupDAO.saveGroup(group);
+    public void saveGroup(Group group,Long courseId) {
+        groupDAO.saveGroup(group,courseId);
     }
 
     @Override
@@ -40,5 +41,10 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public void updateGroup(Group group,Long id) {
         groupDAO.updateGroup(group,id);
+    }
+
+    @Override
+    public List<Course>getCoursesByGroup(Long groupId) {
+        return groupDAO.getCoursesByGroup(groupId) ;
     }
 }

@@ -31,6 +31,7 @@ public class Student {
     @Transient
     private Long groupId;
 
-    public void setStudentById(Long id) {
-    }
+    @ManyToOne
+    private Group group;
+
 }

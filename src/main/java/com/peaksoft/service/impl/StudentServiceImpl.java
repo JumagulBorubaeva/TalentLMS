@@ -24,9 +24,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void saveStudent(Student student) {
-        studentDAO.saveStudent(student);
+    public void saveStudent(Student student,Long id) {
+        studentDAO.saveStudent(student,id);
     }
+
 
     @Override
     public Student getStudentById(Long id) {
@@ -39,12 +40,17 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void updateStudent(Student student,Long id) {
-        studentDAO.updateStudent(student,id);
+    public void updateStudent(Student student, Long id) {
+        studentDAO.updateStudent(student, id);
     }
 
     @Override
     public void addStudent(Student student, StudyFormat studyFormat) {
 
     }
+    @Override
+    public List<Student> findByName(String name) {
+        return studentDAO.findByName(name);
+    }
+
 }

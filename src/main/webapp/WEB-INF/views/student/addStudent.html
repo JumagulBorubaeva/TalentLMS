@@ -18,9 +18,9 @@
     <input type="text"  name="email" th:field="${student.email}" placeholder="email">
     <br><br>
 
-    <select th:field="${student.groupId}">
-        <option th:each="group:${groupList}" th:value="${group.getId()}"
-                th:text="${group.getGroupName()}"></option>
+<!--    <select th:field="${student.groupId}">-->
+<!--        <option th:each="group:${groupList}" th:value="${group.getId()}"-->
+<!--                th:text="${group.getGroupName()}"></option>-->
 
         <div class="radio-button">
             <input type="radio" value="ONLINE" th:field="*{studyFormat}"
@@ -30,6 +30,13 @@
                    id="offlineFormat">
             <label for="offlineFormat">OFFLINE</label>
         </div>
+
+        <select th:field="${student.groupId}">
+            <option th:each="group:${groupList}"
+                    th:value="${group.getId()}"
+                    th:text="${group.getGroupName()}"></option>
+
+        </select>
 
     </select>
     <input type="submit" value="Add">

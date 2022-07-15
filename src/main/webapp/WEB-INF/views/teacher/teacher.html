@@ -16,7 +16,6 @@
         <th scope="col">Email</th>
         <th scope="col">update</th>
         <th scope="col">delete</th>
-        <th scope="col">Course</th>
     </tr>
     </thead>
     <tbody>
@@ -25,13 +24,13 @@
         <td th:text="${teacher.firstName}"></td>
         <td th:text="${teacher.lastName}"></td>
         <td th:text="${teacher.email}"></td>
-<!--       <td th:text="${teacher.getCourse().getCourseName()}"></td>-->
+<!--      <td th:text="${teacher.getCourse().getCourseName()}"></td>-->
 
         <td>
             <a th:href="@{/teachers/{id}/update(id=${teacher.getId()})}">update</a>
         </td>
         <td><form th:method="DELETE" th:action="@{/teachers/{id}(id=${teacher.getId()})}">
-            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:red;"/></form></td>
+            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:violet;"/></form></td>
 
     </tr>
     </tbody>

@@ -14,6 +14,9 @@
         <th scope="col">FirstName</th>
         <th scope="col">LastName</th>
         <th scope="col">Email</th>
+        <th scope="col">Study Format</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -23,20 +26,18 @@
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.email}"></td>
         <td th:text="${student.studyFormat}"></td>
-<!--        <div class="radio-button">-->
-<!--            <input type="radio" value="ONLINE" th:field="*{student.studyFormat}"-->
-<!--                   id="onlineFormat">-->
-<!--            <label for="onlineFormat">ONLINE</label>-->
-<!--            <input type="radio" value="OFFLINE" th:field="*{student.studyFormat}"-->
-<!--                   id="offlineFormat">-->
-<!--            <label for="offlineFormat">OFFLINE</label>-->
-<!--        </div>-->
 
-            <a th:href="@{/students/{id}/studentUpdate(id=${student.getId()})}">update</a>
+
+<!--           <td> <a th:href="@{/students/{id}/studentUpdate(id=${student.getId()})}">-->
+<!--                <input type="submit"  style="height: 40px; width: 80px; background-color:red;"/>update</a>-->
+<!--        </td>-->
+        <td><a th:href="@{/students/{id}/studentUpdate(id=${student.getId()})}">
+            <button style="height: 40px; width: 80px; background-color:blue;">update</button>
+        </a>
         </td>
+
         <td><form th:method="DELETE" th:action="@{/students/{id}(id=${student.getId()})}">
-            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:red;"/></form></td>
-        <td>
+            <input type="submit" value="delete" style="height: 40px; width: 80px; background-color:darkseagreen;"/></form></td>
 
     </tr>
     </tbody>

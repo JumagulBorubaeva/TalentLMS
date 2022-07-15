@@ -32,7 +32,7 @@ public class Group {
             inverseJoinColumns = @JoinColumn(name = "courses_id"))
     List<Course>courses;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "group")
     List<Student>students;
 
     @Transient

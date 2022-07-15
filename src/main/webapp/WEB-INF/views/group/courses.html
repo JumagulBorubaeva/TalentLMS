@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered"
+       th:action="@{courses}"
+       th:method="get">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Duration Month</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course:${courses}">
+        <th scope="row" th:text="${course.id}"></th>
+        <td th:text="${course.courseName}"></td>
+        <td th:text="${course.durationMonth}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

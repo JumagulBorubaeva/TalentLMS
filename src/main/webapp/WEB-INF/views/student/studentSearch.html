@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Searching</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<style>
+    .knopka{
+        color:navy;
+    }
+</style>
+</head>
+<body>
+<form th:action="@{search}">
+    <div class="input-group">
+        <div class="form-outline">
+            <input id="search-input"type="text"class="form-control"name="name"th:value="${name}" >
+        </div>
+        <input class="knopka" type="submit"value="search" >
+        <i class="fas fa-search"></i>
+    </div>
+</form>
+<table th:each="student:${list}">
+    <td th:text="${student.firstName}"></td>
+    <td th:text="${student.lastName}"></td>
+    <td th:text="${student.email}"></td>
+    <td th:text="${student.studyFormat}"></td>
+
+</table>
+</body>
+</html>
